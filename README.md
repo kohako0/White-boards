@@ -1,133 +1,135 @@
-# Freiraum — deine lokalen Whiteboards
+# Freiraum — Your Local Whiteboards
 
-Ein kreativer Ort für Gedanken, Skizzen und Bilder. Mit **Freiraum** erstellst du Whiteboards im Browser und speicherst sie direkt auf deinem Computer — ohne Konto, Cloud oder externe Abhängigkeiten.
+A creative space for ideas, sketches, and images. With **Freiraum**, you can create whiteboards in your browser and save them directly to your computer — without an account, cloud storage, or external dependencies.
 
-## Funktionen
+## Features
 
-- **Mehrere Whiteboards:** erstellen, benennen, suchen, sortieren und wieder öffnen.
-- **Automatische Speicherung:** Änderungen werden als lokale JSON-Dateien gesichert; der Speicherstatus ist im Editor sichtbar.
-- **Zeichnen:** Freihandstift mit verschiedenen Farben und Strichstärken sowie ein Radierer für ganze Objekte.
-- **Text und Notizen:** frei platzierbare Texte und farbige Notizzettel, per Doppelklick bearbeitbar.
-- **Formen:** Rechtecke, Ellipsen und Pfeile, optional mit ausgefüllten Flächen.
-- **Bilder:** PNG, JPEG, WebP und GIF per Dateiauswahl, Drag-and-drop oder Zwischenablage importieren.
-- **Objektbearbeitung:** auswählen, verschieben, duplizieren, nach vorne bringen und löschen; Bilder, Formen und Notizzettel skalieren.
-- **Navigation:** große Arbeitsfläche mit Zoom und Verschieben per Hand-Werkzeug.
-- **Rückgängig und Wiederholen:** Bearbeitungsschritte im geöffneten Board zurücknehmen oder wiederherstellen.
-- **Export und Import:** Boards als PNG exportieren oder als bearbeitbare JSON-Datei sichern und wieder importieren.
+- **Multiple whiteboards:** Create, name, search, sort, and reopen boards.
+- **Automatic saving:** Changes are saved as local JSON files, with the save status visible in the editor.
+- **Drawing:** Freehand pen with various colors and stroke widths, plus an eraser that removes entire objects.
+- **Text and notes:** Freely position text and colored sticky notes, editable with a double-click.
+- **Shapes:** Rectangles, ellipses, and arrows, optionally with filled areas.
+- **Images:** Import PNG, JPEG, WebP, and GIF files via the file picker, drag and drop, or clipboard.
+- **Object editing:** Select, move, duplicate, bring to front, and delete objects; resize images, shapes, and sticky notes.
+- **Navigation:** Large canvas with zoom and panning using the hand tool.
+- **Undo and redo:** Undo or restore editing steps within the currently open board.
+- **Export and import:** Export boards as PNG images or save and reimport them as editable JSON files.
 
-## Schnellstart
+## Quick Start
 
-### Voraussetzungen
+### Requirements
 
-- Node.js ab Version **18**
-- Ein moderner Browser
+- Node.js version **18** or later
+- A modern browser
 
-Lade das Repository als ZIP herunter und entpacke es oder klone es mit Git. Öffne anschließend ein Terminal im Projektordner:
+Download the repository as a ZIP file and extract it, or clone it using Git. Then open a terminal in the project directory:
 
 ```sh
 npm start
 ```
 
-Öffne danach die App im Browser:
+Next, open the app in your browser:
 
 **[http://127.0.0.1:4317](http://127.0.0.1:4317)**
 
-Es ist kein `npm install` und kein Build-Schritt erforderlich. Nach dem Herunterladen des Projekts funktioniert die App offline.
+No `npm install` or build step is required. Once the project has been downloaded, the app works offline.
 
-### Windows: Start per Doppelklick
+### Windows: Launch with a Double-Click
 
-Klicke auf **`Start.cmd`**. Der Starter öffnet die App im Standardbrowser und startet den lokalen Server bei Bedarf im Hintergrund. Läuft bereits eine Freiraum-Instanz auf Port `4317`, wird sie wiederverwendet.
+Double-click **`Start.cmd`**. The launcher opens the app in your default browser and starts the local server in the background if necessary. If a Freiraum instance is already running on port `4317`, it will be reused.
 
-Der Hintergrundserver bleibt nach dem Schließen des Browsers aktiv. Ein Windows-Neustart beendet ihn. Beim Start über `npm start` kannst du den Server im Terminal mit **Strg + C** beenden.
+The background server remains active after closing the browser. Restarting Windows terminates it. When starting the app with `npm start`, you can stop the server in the terminal by pressing **Ctrl + C**.
 
-## Bedienung
+## Usage
 
-1. Klicke in der Übersicht auf **Neues Whiteboard** und vergib oben einen Namen.
-2. Wähle ein Werkzeug in der oberen Leiste. Klicke für Text oder Notizzettel auf die Arbeitsfläche; ziehe für Zeichnungen und Formen mit gedrückter Maustaste.
-3. Passe Farben, Strichstärke und Textgröße im Stilbereich an.
-4. Importiere Bilder über das Bildsymbol, ziehe sie auf die Fläche oder füge sie aus der Zwischenablage ein.
-5. Wähle Objekte mit dem Auswahlwerkzeug aus, um sie zu verschieben oder zu bearbeiten. Über die Eckpunkte lassen sich Bilder, Formen und Notizzettel skalieren.
-6. Warte vor dem Schließen auf **Gespeichert** oder klicke auf **Speichern**.
+1. Click **New Whiteboard** on the overview screen and enter a name at the top.
+2. Select a tool from the top toolbar. Click the canvas to add text or sticky notes; click and drag to draw or create shapes.
+3. Adjust colors, stroke width, and text size in the style panel.
+4. Import images using the image icon, drag them onto the canvas, or paste them from the clipboard.
+5. Select objects with the selection tool to move or edit them. Use the corner handles to resize images, shapes, and sticky notes.
+6. Before closing the app, wait until **Saved** appears or click **Save**.
 
-Bilder behalten beim Skalieren ihr Seitenverhältnis. Halte **Umschalt** gedrückt, um Breite und Höhe unabhängig zu verändern. Der Radierer entfernt jeweils ein vollständiges Objekt.
+Images maintain their aspect ratio when resized. Hold **Shift** to adjust width and height independently. The eraser removes an entire object at a time.
 
-### Tastenkürzel
+### Keyboard Shortcuts
 
-Die Kürzel für Werkzeuge gelten außerhalb von Eingabefeldern.
+Tool shortcuts work outside input fields.
 
-| Taste | Aktion |
+| Key | Action |
 | --- | --- |
-| `V` | Auswahlwerkzeug |
-| `H` | Hand-Werkzeug |
-| `P` | Stift |
-| `E` | Objekt-Radierer |
+| `V` | Selection tool |
+| `H` | Hand tool |
+| `P` | Pen |
+| `E` | Object eraser |
 | `T` | Text |
-| `N` | Notizzettel |
-| `R` | Rechteck |
+| `N` | Sticky note |
+| `R` | Rectangle |
 | `O` | Ellipse |
-| `A` | Pfeil |
-| `Leertaste` + Ziehen | Arbeitsfläche verschieben |
-| Mausrad | Am Mauszeiger zoomen |
-| Doppelklick | Text oder Notizzettel bearbeiten |
-| `Strg + Z` | Rückgängig |
-| `Strg + Y` oder `Strg + Umschalt + Z` | Wiederholen |
-| `Strg + D` | Ausgewähltes Objekt duplizieren |
-| `Entf` oder `Rücktaste` | Ausgewähltes Objekt löschen |
-| Pfeiltasten | Ausgewähltes Objekt bewegen |
-| `Umschalt` + Pfeiltasten | Ausgewähltes Objekt in größeren Schritten bewegen |
-| `Strg + S` | Sofort speichern |
-| `Strg + V` | Bild aus der Zwischenablage einfügen |
-| `Esc` | Auswahl aufheben |
+| `A` | Arrow |
+| `Space` + drag | Pan the canvas |
+| Mouse wheel | Zoom toward the cursor |
+| Double-click | Edit text or sticky notes |
+| `Ctrl + Z` | Undo |
+| `Ctrl + Y` or `Ctrl + Shift + Z` | Redo |
+| `Ctrl + D` | Duplicate selected object |
+| `Delete` or `Backspace` | Delete selected object |
+| Arrow keys | Move selected object |
+| `Shift` + arrow keys | Move selected object in larger increments |
+| `Ctrl + S` | Save immediately |
+| `Ctrl + V` | Paste image from clipboard |
+| `Esc` | Clear selection |
 
-Auf macOS kann für die Kombinationen mit `Strg` auch `Cmd` verwendet werden. Der Doppelklick-Starter ist für Windows vorgesehen; auf anderen Systemen erfolgt der Start über `npm start`.
+On macOS, `Cmd` can be used instead of `Ctrl` for the corresponding shortcuts. The double-click launcher is designed for Windows; on other systems, start the app using `npm start`.
 
-## Speicherung und Backups
+## Storage and Backups
 
-Die App legt im Projektordner automatisch einen Unterordner `boards/` an. Jedes Whiteboard wird darin als eigene JSON-Datei gespeichert. Importierte Bilder sind direkt in dieser Datei eingebettet.
+The app automatically creates a `boards/` subdirectory in the project folder. Each whiteboard is stored as a separate JSON file. Imported images are embedded directly in these files.
 
-- Änderungen werden nach einer kurzen Pause von etwa **0,7 Sekunden** gespeichert.
-- Die Daten bleiben beim Neuladen des Browsers erhalten und sind unabhängig vom Browser-Cache.
-- Sichere den Ordner `boards/` oder exportiere einzelne Boards als JSON.
-- Ein JSON-Export kann über die Import-Schaltfläche in der Übersicht als neues Board geöffnet werden.
-- Ein PNG-Export enthält das sichtbare Ergebnis als Bild; zum Weiterbearbeiten und Sichern aller Objekte dient das JSON-Format.
-- Das Löschen eines Boards in der Übersicht entfernt seine Datei nach Bestätigung dauerhaft.
+- Changes are saved after a short delay of approximately **0.7 seconds**.
+- Data persists when the browser is reloaded and is independent of the browser cache.
+- Back up the `boards/` directory or export individual boards as JSON files.
+- A JSON export can be imported as a new board using the import button on the overview screen.
+- A PNG export contains the visible result as an image. Use JSON format to preserve all objects for further editing and backup.
+- Deleting a board from the overview permanently removes its file after confirmation.
 
-`boards/` ist in `.gitignore` eingetragen, damit persönliche Whiteboards bei normalen Git-Vorgängen nicht mit veröffentlicht werden.
+The `boards/` directory is listed in `.gitignore` so that personal whiteboards are not accidentally published during normal Git operations.
 
-## Technischer Aufbau
+## Technical Architecture
 
-Freiraum verwendet **HTML, CSS und Vanilla JavaScript** für die Oberfläche, **SVG** für die Zeichenfläche und die integrierten Module von **Node.js** für den lokalen HTTP-Server und die Dateispeicherung. Es gibt keine externen Laufzeitabhängigkeiten.
+Freiraum uses **HTML, CSS, and vanilla JavaScript** for the interface, **SVG** for the drawing canvas, and the built-in modules of **Node.js** for the local HTTP server and file storage. There are no external runtime dependencies.
 
 ```text
 .
 ├── public/
-│   ├── index.html        # Oberfläche und Dialoge
-│   ├── style.css         # Layout und responsive Darstellung
-│   ├── app.js            # Zeichenwerkzeuge, Editor und Exporte
+│   ├── index.html        # Interface and dialogs
+│   ├── style.css         # Layout and responsive design
+│   ├── app.js            # Drawing tools, editor, and exports
 │   └── favicon.svg
 ├── test/
-│   └── server.test.js    # Automatisierte Server- und Speichertests
-├── boards/               # Persönliche Board-Dateien; automatisch angelegt
-├── server.js             # Lokaler HTTP-Server und Board-API
-├── launch.js             # Windows-Starter mit Browseröffnung
-├── Start.cmd             # Start per Doppelklick unter Windows
+│   └── server.test.js    # Automated server and storage tests
+├── boards/               # Personal board files; created automatically
+├── server.js             # Local HTTP server and board API
+├── launch.js             # Windows launcher with browser opening
+├── Start.cmd             # Double-click launcher for Windows
 ├── package.json
 ├── .gitignore
 └── README.md
 ```
 
-Der Server lauscht ausschließlich auf `127.0.0.1`. Die App ist für die lokale Nutzung durch eine Person ausgelegt. Eine Anmeldung, Cloud-Synchronisierung und gemeinsame Bearbeitung in Echtzeit sind nicht enthalten. Für den Betrieb wird der Node.js-Server benötigt; reines statisches Hosting, etwa über GitHub Pages, stellt die Speicher-API nicht bereit.
+The server listens exclusively on `127.0.0.1`. The app is designed for local use by a single person. User accounts, cloud synchronization, and real-time collaborative editing are not included.
 
-### Konfiguration
+A Node.js server is required to run the app. Static hosting services such as GitHub Pages do not provide the storage API.
 
-Beim direkten Start des Servers werden diese Umgebungsvariablen unterstützt:
+### Configuration
 
-| Variable | Standard | Bedeutung |
+When starting the server directly, the following environment variables are supported:
+
+| Variable | Default | Description |
 | --- | --- | --- |
-| `PORT` | `4317` | Port des lokalen HTTP-Servers |
-| `WHITEBOARD_DATA_DIR` | `boards/` im Projektordner | Speicherverzeichnis für Board-Dateien |
+| `PORT` | `4317` | Port for the local HTTP server |
+| `WHITEBOARD_DATA_DIR` | `boards/` in the project directory | Storage directory for board files |
 
-Beispiel in PowerShell:
+Example in PowerShell:
 
 ```powershell
 $env:PORT = '4320'
@@ -135,7 +137,7 @@ $env:WHITEBOARD_DATA_DIR = 'D:\MeineWhiteboards'
 npm start
 ```
 
-In diesem Beispiel ist die App unter `http://127.0.0.1:4320` erreichbar. `Start.cmd` und `launch.js` verwenden die feste Standardadresse mit Port `4317`; für einen eigenen Port starte die App direkt mit `npm start`.
+In this example, the app is available at `http://127.0.0.1:4320`. `Start.cmd` and `launch.js` use the fixed default address on port `4317`. To use a custom port, start the app directly with `npm start`.
 
 ### Tests
 
@@ -143,27 +145,30 @@ In diesem Beispiel ist die App unter `http://127.0.0.1:4320` erreichbar. `Start.
 npm test
 ```
 
-Die Tests prüfen das Erstellen, Speichern, Laden, Überschreiben und Löschen von Boards, die Validierung fehlerhafter Inhalte, die Zugriffskontrolle für fremde Web-Ursprünge sowie die Auslieferung der App-Dateien. Testdaten werden getrennt von persönlichen Boards angelegt.
+The tests verify board creation, saving, loading, overwriting, and deletion; validation of invalid content; access control for requests from external web origins; and delivery of app files. Test data is stored separately from personal boards.
 
-## Grenzen
+## Limitations
 
-| Bereich | Grenze / Verhalten |
+| Area | Limit or behavior |
 | --- | --- |
-| Bildimport | Maximal 20 MB pro Bild |
-| Große Bilder | Werden auf maximal 2200 Pixel Kantenlänge reduziert |
-| Animierte GIFs | Werden als statisches Bild übernommen |
-| Board-Datei / Speicheranfrage | Maximal 50 MB einschließlich eingebetteter Bilder |
-| Elemente pro Board | Maximal 10.000 |
-| PNG-Export | Maximal 6000 Pixel Kantenlänge |
-| Rückgängig-Verlauf | Gilt innerhalb der geöffneten Bearbeitungssitzung |
+| Image import | Maximum 20 MB per image |
+| Large images | Resized to a maximum dimension of 2,200 pixels |
+| Animated GIFs | Imported as static images |
+| Board file / storage request | Maximum 50 MB, including embedded images |
+| Elements per board | Maximum 10,000 |
+| PNG export | Maximum dimension of 6,000 pixels |
+| Undo history | Limited to the currently open editing session |
 
-## Häufige Fragen
+## Frequently Asked Questions
 
-**Die App startet nicht.**  
-Prüfe mit `node --version`, ob Node.js installiert und im Terminal erreichbar ist. Starte anschließend `npm start` im Projektordner, um mögliche Fehlermeldungen zu sehen. Der gewählte Port muss frei sein.
+**The app won't start.**
 
-**Es wird „Nicht gespeichert“ angezeigt.**  
-Prüfe, ob der lokale Server läuft und das Speicherverzeichnis beschreibbar ist. Klicke erneut auf **Speichern** und schließe die App erst, wenn **Gespeichert** angezeigt wird.
+Run `node --version` to check whether Node.js is installed and accessible from the terminal. Then run `npm start` in the project directory to see any error messages. The selected port must be available.
 
-**Kann ich meine Boards auf einen anderen Computer übertragen?**  
-Ja. Kopiere den Ordner `boards/` in die dortige Freiraum-Installation oder exportiere die gewünschten Boards als JSON und importiere sie auf dem anderen Computer.
+**The app displays "Not saved."**
+
+Check whether the local server is running and whether the storage directory is writable. Click **Save** again and close the app only after **Saved** appears.
+
+**Can I transfer my boards to another computer?**
+
+Yes. Copy the `boards/` directory into the Freiraum installation on the other computer, or export the desired boards as JSON files and import them on the other computer.
