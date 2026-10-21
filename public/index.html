@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Freiraum — Deine Whiteboards</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"></head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#" id="home-link"><span class="brand-mark">f.</span>freiraum<span class="brand-dot">®</span></a>
+    <div class="workspace-label">DEIN KREATIVER ORT</div>
+    <button id="nav-boards" class="nav-item active"><span data-icon="boards"></span>Meine Whiteboards<span id="board-count" class="count">0</span></button>
+    <div class="recent-label">ZULETZT GEÖFFNET</div><div id="recent-boards"></div>
+    <div class="sidebar-bottom"><span class="local-dot"></span><div><strong>Dein Raum. Deine Daten.</strong><small>Lokal auf diesem Computer gespeichert.</small></div></div>
+  </aside>
+  <main id="dashboard">
+    <header class="dashboard-top"><span>Workspace <span class="breadcrumb">/</span> <strong>Meine Whiteboards</strong></span><span class="local-badge"><span></span> Lokal & privat</span></header>
+    <section class="dashboard-content">
+      <div class="eyebrow">PLATZ FÜR ALLES, WAS NOCH KOMMT</div>
+      <div class="heading-row"><div><h1>Gute Ideen brauchen <em>Freiraum.</em></h1><p>Gedanken sammeln, Bilder verbinden, einfach loszeichnen.</p></div><button id="new-board" class="primary"><span data-icon="plus"></span>Neues Whiteboard</button></div>
+      <div class="starter-banner"><div><span class="banner-tag">VON DER ERSTEN IDEE ZUM GROSSEN GANZEN</span><h2>Ein leerer Raum.<br>Unendlich viele Möglichkeiten.</h2><button id="start-blank" class="text-button">Deine nächste Idee beginnt hier <span data-icon="arrow-right"></span></button></div><div class="banner-art" aria-hidden="true"><div class="art-note">was wäre,<br>wenn …<span>✦</span></div><svg viewBox="0 0 380 180"><path d="M35 120 C60 40 180 160 215 75 S310 50 330 30"/><path d="m312 32 20-6-1 23"/></svg><div class="art-card"><span></span><span></span><span></span></div><span class="art-star">✳</span></div></div>
+      <div class="boards-heading"><h2>Meine Whiteboards <span id="board-count-label">0</span></h2><div class="list-controls"><label class="search"><span data-icon="search"></span><input id="search" placeholder="Whiteboards suchen …" aria-label="Whiteboards suchen"></label><label class="sort-label"><select id="sort" aria-label="Sortierung"><option value="updated">Zuletzt bearbeitet</option><option value="name">Name A–Z</option></select></label><button id="import-board" class="icon-button" title="Board-Datei importieren" aria-label="Board-Datei importieren"><span data-icon="upload"></span></button></div></div>
+      <div id="board-grid" class="board-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><span data-icon="boards"></span><h3>Dein erster Freiraum wartet.</h3><p>Erstelle ein Whiteboard und gib deinen Ideen Platz.</p></div>
+      <footer class="dashboard-footer"><span><span data-icon="spark"></span>Für Gedanken, die nicht in eine Zeile passen.</span><span>Mit Platz zum Weiterdenken.</span></footer>
+    </section>
+  </main>
+  <main id="editor" hidden>
+    <header class="editor-header"><button id="back" class="icon-button" title="Zur Übersicht" aria-label="Zur Übersicht"><span data-icon="back"></span></button><div class="editor-divider"></div><span class="mini-mark">f.</span><input id="board-title" aria-label="Board-Titel" maxlength="200" value="Ohne Titel"><span id="save-status" class="save-status">Gespeichert</span><div class="editor-actions"><button id="undo" class="icon-button" title="Rückgängig (Strg+Z)" aria-label="Rückgängig"><span data-icon="undo"></span></button><button id="redo" class="icon-button" title="Wiederholen (Strg+Y)" aria-label="Wiederholen"><span data-icon="redo"></span></button><button id="save-now" class="secondary" title="Speichern (Strg+S)"><span data-icon="check"></span><span>Speichern</span></button><div class="export-wrap"><button id="export-button" class="primary"><span data-icon="download"></span>Exportieren</button><div id="export-menu" class="dropdown" hidden><button id="export-png">Als Bild (.png)</button><button id="export-json">Als Board-Datei (.json)</button></div></div></div></header>
+    <div id="canvas-area" class="canvas-area">
+      <svg id="canvas" xmlns="http://www.w3.org/2000/svg" tabindex="0" aria-label="Whiteboard-Zeichenfläche"><defs><pattern id="grid-pattern" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#d8d9d4"/></pattern></defs><rect id="grid-bg" width="100%" height="100%" fill="url(#grid-pattern)"/><g id="scene"></g><g id="selection-layer"></g></svg>
+      <div class="board-hint" id="board-hint"><span>Dein Raum für große Ideen.</span>Zeichne los oder ziehe ein Bild hierher.</div>
+      <div class="toolbar" role="toolbar" aria-label="Zeichenwerkzeuge">
+        <button data-tool="select" class="tool active" title="Auswählen (V)" aria-label="Auswählen"><span data-icon="cursor"></span><kbd>V</kbd></button>
+        <button data-tool="hand" class="tool" title="Verschieben (H oder Leertaste)" aria-label="Arbeitsfläche verschieben"><span data-icon="hand"></span><kbd>H</kbd></button><span class="toolbar-divider"></span>
+        <button data-tool="pen" class="tool" title="Stift (P)" aria-label="Stift"><span data-icon="pen"></span><kbd>P</kbd></button>
+        <button data-tool="eraser" class="tool" title="Objekt-Radierer (E)" aria-label="Radierer"><span data-icon="eraser"></span><kbd>E</kbd></button><span class="toolbar-divider"></span>
+        <button data-tool="text" class="tool" title="Text (T)" aria-label="Text"><span data-icon="text"></span><kbd>T</kbd></button>
+        <button data-tool="note" class="tool" title="Notizzettel (N)" aria-label="Notizzettel"><span data-icon="note"></span><kbd>N</kbd></button>
+        <button data-tool="rect" class="tool" title="Rechteck (R)" aria-label="Rechteck"><span data-icon="rect"></span><kbd>R</kbd></button>
+        <button data-tool="ellipse" class="tool" title="Ellipse (O)" aria-label="Ellipse"><span data-icon="ellipse"></span><kbd>O</kbd></button>
+        <button data-tool="arrow" class="tool" title="Pfeil (A)" aria-label="Pfeil"><span data-icon="arrow"></span><kbd>A</kbd></button><span class="toolbar-divider"></span>
+        <button id="add-image" class="tool" title="Bild importieren" aria-label="Bild importieren"><span data-icon="image"></span></button>
+      </div>
+      <div id="properties" class="properties"><span class="panel-label">STIL</span><div class="color-row" id="colors"></div><div class="property-line"><label for="custom-color">Eigene Farbe</label><input type="color" id="custom-color" value="#303832" title="Eigene Farbe"></div><div class="property-line"><label for="stroke-width">Strichstärke</label><select id="stroke-width"><option value="2">Fein · 2</option><option value="4" selected>Mittel · 4</option><option value="8">Breit · 8</option><option value="14">Marker · 14</option></select></div><div class="property-line"><label for="font-size">Textgröße</label><select id="font-size"><option value="18">18</option><option value="24" selected>24</option><option value="32">32</option><option value="48">48</option><option value="64">64</option></select></div><label class="fill-label"><input type="checkbox" id="fill-shape">Form ausfüllen</label><div id="object-actions" hidden><div class="object-divider"></div><button id="edit-text" class="panel-button">Text bearbeiten</button><button id="duplicate" class="panel-button"><span data-icon="copy"></span>Duplizieren</button><button id="to-front" class="panel-button"><span data-icon="layers"></span>Nach vorne</button><button id="delete-object" class="panel-button danger"><span data-icon="trash"></span>Löschen</button></div></div>
+      <div class="canvas-bottom"><button id="help-button" class="help-button" title="Tastenkürzel">? <span>Kurzhilfe</span></button><span class="canvas-caption">Alles beginnt mit einer Idee.</span><div class="zoom-controls"><button id="zoom-out" aria-label="Verkleinern">−</button><button id="zoom-reset" title="Zoom zurücksetzen">100 %</button><button id="zoom-in" aria-label="Vergrößern">+</button><span></span><button id="fit" title="Alles anzeigen" aria-label="Alles anzeigen"><span data-icon="fit"></span></button></div></div>
+      <div id="drop-overlay" hidden><span data-icon="image"></span>Bilder hier ablegen</div>
+    </div>
+  </main>
+  <input type="file" id="image-input" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+  <input type="file" id="board-input" accept=".json,application/json" hidden>
+  <dialog id="text-dialog"><form method="dialog"><div class="dialog-top"><h2 id="text-dialog-title">Dein Gedanke</h2><button value="cancel" class="icon-button" aria-label="Schließen">×</button></div><textarea id="text-input" rows="5" placeholder="Schreib einfach los …" aria-label="Textinhalt"></textarea><div class="dialog-bottom"><button value="cancel" class="secondary">Abbrechen</button><button value="save" class="primary">Übernehmen</button></div></form></dialog>
+  <dialog id="confirm-dialog"><form method="dialog"><h2>Whiteboard löschen?</h2><p id="confirm-text"></p><div class="dialog-bottom"><button value="cancel" class="secondary">Behalten</button><button value="delete" class="primary danger-bg">Löschen</button></div></form></dialog>
+  <dialog id="help-dialog"><form method="dialog"><div class="dialog-top"><h2>Ein bisschen Orientierung.</h2><button class="icon-button" aria-label="Schließen">×</button></div><p>Werkzeug wählen und auf die Fläche klicken oder ziehen.</p><dl><dt>V / H / P / E</dt><dd>Auswählen / Hand / Stift / Radierer</dd><dt>T / N / R / O / A</dt><dd>Text / Notiz / Rechteck / Ellipse / Pfeil</dd><dt>Leertaste + Ziehen</dt><dd>Arbeitsfläche verschieben</dd><dt>Mausrad</dt><dd>Am Mauszeiger zoomen</dd><dt>Doppelklick</dt><dd>Text oder Notiz bearbeiten</dd><dt>Strg + Z / Strg + Y</dt><dd>Rückgängig / Wiederholen</dd><dt>Strg + D / Entf</dt><dd>Auswahl duplizieren / löschen</dd><dt>Strg + S</dt><dd>Sofort speichern</dd><dt>Strg + V</dt><dd>Bild aus Zwischenablage einfügen</dd></dl><p class="help-small">Der Radierer entfernt ganze Objekte. Bilder lassen sich über ihre Ecken skalieren. Boards werden automatisch im Ordner „boards“ gespeichert.</p><button class="primary">Alles klar</button></form></dialog>
+  <div id="toast" role="status" hidden></div>
+  <script src="/app.js"></script>
+</body></html>

@@ -1,0 +1,4 @@
+boards/
+.test-data/
+node_modules/
+*.log
