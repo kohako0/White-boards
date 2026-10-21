@@ -44,6 +44,6 @@ test('Fremde Webseiten können nicht auf die lokale Board-API zugreifen',async()
   assert.equal((await fetch(base+'/api/boards/test-2',{method:'PUT',headers:{Origin:'https://example.com'},body:JSON.stringify(board)})).status,403);
 });
 test('App und Assets werden ohne Build oder Installation ausgeliefert',async()=>{
-  for(const file of ['/','/app.js','/style.css','/favicon.svg']) assert.equal((await fetch(base+file)).status,200);
+  for(const file of ['/','/app.js','/stroke.js','/style.css','/favicon.svg']) assert.equal((await fetch(base+file)).status,200);
   assert.equal((await fetch(base+'/server.js')).status,404);
 });

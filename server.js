@@ -84,7 +84,7 @@ async function handle(req, res) {
       }
       return reply(res, 405, { error: 'Methode nicht erlaubt.' });
     }
-    const files = { '/': ['index.html', 'text/html'], '/app.js': ['app.js', 'text/javascript'], '/style.css': ['style.css', 'text/css'], '/favicon.svg': ['favicon.svg', 'image/svg+xml'] };
+    const files = { '/': ['index.html', 'text/html'], '/app.js': ['app.js', 'text/javascript'], '/stroke.js': ['stroke.js', 'text/javascript'], '/style.css': ['style.css', 'text/css'], '/favicon.svg': ['favicon.svg', 'image/svg+xml'] };
     const asset = files[url.pathname];
     if (!asset) { res.writeHead(404); return res.end('Nicht gefunden'); }
     res.writeHead(200, { 'Content-Type': asset[1] + '; charset=utf-8', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });

@@ -7,7 +7,8 @@ A creative space for ideas, sketches, and images. With **Freiraum**, you can cre
 - **Multiple whiteboards:** Create, name, search, sort, and reopen boards.
 - **Automatic saving:** Changes are saved as local JSON files, with the save status visible in the editor.
 - **Drawing:** Freehand pen with various colors and stroke widths, plus an eraser that removes entire objects.
-- **Text and notes:** Freely position text and colored sticky notes, editable with a double-click.
+- **Text and notes:** Freely position text and colored sticky notes, editable directly on the canvas with a single click — no dialog windows.
+- **Clean lines:** Optional pen stabilization smooths curves and straightens nearly straight strokes. A dedicated line tool draws exact straight lines; hold Shift to snap to 45-degree increments.
 - **Shapes:** Rectangles, ellipses, and arrows, optionally with filled areas.
 - **Images:** Import PNG, JPEG, WebP, and GIF files via the file picker, drag and drop, or clipboard.
 - **Object editing:** Select, move, duplicate, bring to front, and delete objects; resize images, shapes, and sticky notes.
@@ -43,11 +44,13 @@ The background server remains active after closing the browser. Restarting Windo
 ## Usage
 
 1. Click **New Whiteboard** on the overview screen and enter a name at the top.
-2. Select a tool from the top toolbar. Click the canvas to add text or sticky notes; click and drag to draw or create shapes.
+2. Select a tool from the top toolbar. Click the canvas and start typing to add text or sticky notes; click and drag to draw or create shapes.
 3. Adjust colors, stroke width, and text size in the style panel.
 4. Import images using the image icon, drag them onto the canvas, or paste them from the clipboard.
-5. Select objects with the selection tool to move or edit them. Use the corner handles to resize images, shapes, and sticky notes.
+5. Click existing text or a sticky note with the selection tool to edit it directly. Drag to move it instead. Enter inserts a new line; click outside, press Esc, or use Ctrl + Enter to finish. Use the corner handles to resize images, shapes, and sticky notes.
 6. Before closing the app, wait until **Saved** appears or click **Save**.
+
+The **Linienkorrektur** checkbox in the style panel controls pen stabilization. It is enabled by default and the preference is remembered in your browser. Existing drawings remain unchanged when toggling it.
 
 Images maintain their aspect ratio when resized. Hold **Shift** to adjust width and height independently. The eraser removes an entire object at a time.
 
@@ -60,6 +63,8 @@ Tool shortcuts work outside input fields.
 | `V` | Selection tool |
 | `H` | Hand tool |
 | `P` | Pen |
+| `L` | Straight line |
+| `Shift` while drawing | Straighten a pen stroke or snap a line to 45-degree increments |
 | `E` | Object eraser |
 | `T` | Text |
 | `N` | Sticky note |
@@ -68,7 +73,8 @@ Tool shortcuts work outside input fields.
 | `A` | Arrow |
 | `Space` + drag | Pan the canvas |
 | Mouse wheel | Zoom toward the cursor |
-| Double-click | Edit text or sticky notes |
+| Click text or sticky note | Edit directly on the canvas |
+| `Esc` / `Ctrl + Enter` while typing | Finish editing |
 | `Ctrl + Z` | Undo |
 | `Ctrl + Y` or `Ctrl + Shift + Z` | Redo |
 | `Ctrl + D` | Duplicate selected object |
@@ -103,9 +109,12 @@ Freiraum uses **HTML, CSS, and vanilla JavaScript** for the interface, **SVG** f
 ├── public/
 │   ├── index.html        # Interface and dialogs
 │   ├── style.css         # Layout and responsive design
+│   ├── stroke.js         # Pen smoothing, straightening and angle snapping
 │   ├── app.js            # Drawing tools, editor, and exports
 │   └── favicon.svg
 ├── test/
+│   ├── editor.test.js     # Direct-editing and drawing interaction tests
+│   ├── stroke.test.js     # Smoothing and angle snapping tests
 │   └── server.test.js    # Automated server and storage tests
 ├── boards/               # Personal board files; created automatically
 ├── server.js             # Local HTTP server and board API
@@ -172,3 +181,4 @@ Check whether the local server is running and whether the storage directory is w
 **Can I transfer my boards to another computer?**
 
 Yes. Copy the `boards/` directory into the Freiraum installation on the other computer, or export the desired boards as JSON files and import them on the other computer.
+The editor interaction tests also cover direct text editing, moving and growing sticky notes, straight-line drawing, and undo/redo. Geometry tests cover pen stabilization, curve preservation, short strokes, and zoom-dependent correction.
